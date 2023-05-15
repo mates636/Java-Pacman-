@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="xpries01:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/xpries01_jar</output-path>
+    <root id="archive" name="xpries01.jar">
+      <element id="module-output" name="xpries01" />
+    </root>
+  </artifact>
+</component>

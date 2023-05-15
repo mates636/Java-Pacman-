@@ -1,0 +1,35 @@
+<project name="xpries01" default="build" basedir=".">
+    <property name="src.dir" value="src" />
+    <property name="build.dir" value="build" />
+    <property name="docjar.dir" value="docjar" />
+    <property name="main.class" value="project.Main" />
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+        <delete dir="${docjar.dir}" />
+    </target>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}/classes" />
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes" />
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${docjar.dir}" />
+        <jar destfile="${docjar.dir}/${ant.project.name}.jar" basedir="${build.dir}/classes">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}" />
+                <!-- <attribute name="Class-Path" value="" /> -->
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="doc">
+        <mkdir dir="${docjar.dir}/javadoc" />
+        <javadoc sourcepath="${src.dir}" destdir="${docjar.dir}/javadoc" />
+    </target>
+
+    <target name="build" depends="jar, doc">
+
+    </target>
+</project>
